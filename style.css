@@ -1,0 +1,390 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:"Roboto", sans-serif;
+    background-color: #8CC461;
+    /* background: radial-gradient(at top, #ac0000, #f12828); */
+    min-height: 100vh;
+    text-transform: uppercase;
+
+
+}
+
+/* Main Content */
+.container{
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding-top: 3rem;
+
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 160px;
+    border: 3px solid white;
+    border-radius: 13px;
+    padding: 1rem;
+
+}
+.logo p{
+    font-size: 40px;
+    color: white;
+    font-weight: 600;
+}
+.score-container{
+    display: flex;
+    gap: 20px;
+
+}
+.score{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    width: 150px;
+    /* padding: 10px; */
+}
+
+.score-title{
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    color: #656565;
+    text-align: center;
+    font-weight: 600;
+    padding: 6px;
+}
+.score-num{
+    font-size: 4.1rem;
+    font-weight: 600;
+    color: black;
+
+}
+
+/* Game */
+
+.game{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "rock scissors"
+    "paper paper";
+    ;
+    place-items: center;
+    height: 30rem;
+    width: 50%;
+    margin: auto;
+    padding-top: 4rem;
+}
+
+.game::before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    left: 30%;
+    top: 34%;
+    background: url('img/bg-triangle.svg') no-repeat;
+    z-index: -1;
+}
+
+.choice-btn{
+    border: none;
+    outline: none;
+    background:none;
+    cursor: pointer;
+    
+}
+
+.choice{
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    background: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.choice::before,
+.choice::after{
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    left: -15%;
+    right: -15%;
+    border-radius: 50%;
+    z-index: -1;
+    box-shadow: 0px 0px 9px #595252;
+}
+
+.choice::after{
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.choice-btn:focus .choice::after{
+    opacity: 1;
+    box-shadow: 0 0 0 2rem rgb(94, 184, 94);
+    z-index: -2;
+}
+
+.choice.rock::before{
+    background: #0074B6;
+}
+.choice.scissors::before{
+    background: #BD00FF;
+}
+.choice.paper::before{
+    background: #FFA943;
+}
+
+.choice-btn[data-choice="paper"]{
+    grid-area: paper;
+}
+.choice-btn[data-choice="scissors"]{
+    grid-area: scissors;
+}
+.choice-btn[data-choice="rock"]{
+    grid-area: rock;
+}
+
+/* Results */
+.results{
+    
+}
+
+
+/* Rules Button */
+
+.rules-container{
+    width: 300px;
+    position: absolute;
+    right: 3rem;
+    top: 17rem;
+    border: 7px solid white;
+    border-radius: 13px;
+    background-color: #004429;
+    padding: 2rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    /* pointer-events: none; */
+}
+.rules-container h1{
+    padding-bottom: 16px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.rules-container ul{
+    list-style-image: url(img/Rectangle\ 5.png);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.rules-container ul li{
+    line-height: 1rem;
+    font-size: 13px;
+    text-transform: initial;
+}
+.rules-btn{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.479);
+    border-radius: 0.6rem;
+    color: white;
+    padding: 10px 20px;
+    font-family: inherit;
+    text-transform: inherit;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    
+}
+.rules-btn:focus{
+    border: 2px solid white;
+}
+
+.close-btn{
+    position: absolute;
+    top: -32px;
+    right: -26px;
+    width: 4rem;
+    height: 4rem;
+    border: 6px solid white;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+    font-size: 2.4rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.show-rules{
+    opacity: 1;
+    /* pointer-events: initial; */
+}
+
+/* -----------------------------------Match Area -------------------------------------------- */
+#match-area{
+    align-items: center;
+    display: none;
+    margin-left: 180px;
+    margin-right: 180px;
+}
+
+#play-again{
+    display: block;
+    margin: 0 auto;
+    padding: 14px 30px;
+    border-radius: 9px;
+    letter-spacing: 5px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+#result{
+    position: absolute;
+    margin: auto;
+    margin-top: -100px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 2px;
+    line-height: 26px;
+}
+
+.txt{
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+    font-weight: 800;
+    display: inline-flex;
+}
+
+
+#match-title{
+    display: flex;
+    justify-content: space-around;
+    display: none;
+    z-index: 100;
+}
+#match-title h2{
+    display: flex;
+    justify-content: space-around;
+    display: none;
+    z-index: 100;
+}
+
+/* ------------------------------------Winner HIghlights-------------------------------------------- */
+
+#win-box{
+    margin:  auto;
+    display: none;
+}
+
+#winner-background{
+    display: flex;
+    justify-content: space-around;
+    grid:180px;
+    margin-top: -130px;
+    z-index: -1;
+    
+}
+
+#user-Winner-Background{
+    opacity: 0;
+}
+
+#comp-Winner-Background{
+    opacity: 0;
+}
+
+/*****************************************Winners/Trophy Page*******************************************/
+
+#Winner-page{
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+ }
+ 
+ #txt1{
+     font-size: 91px;
+     font-weight: 600;
+     color: white;
+ }
+ 
+ #txt2{
+     font-size: 41px;
+     font-weight: 600;
+     color: white;
+     margin-top: 25px;
+ }
+ /*****************************************Play again btn winner page css*******************************************/
+ #play-again-btn-win-page{
+     display: block;
+     margin: 50px auto;
+     padding: 14px 30px;
+     border-radius: 9px;
+     letter-spacing: 5px;
+     border: none;
+     background-color: white;
+     cursor: pointer;
+ }
+ 
+ /*****************************************Rules btn winner page css*******************************************/
+ #Rules-btn-win-page{
+     padding: 10px 30px;
+     font-size: 21px;
+     border-radius: 10px;
+     letter-spacing: 5px;
+     color: white;
+     border: 2px solid white;
+     background-color: transparent;
+     margin-right: 38px;
+     cursor: pointer;
+     position: absolute;
+     right: 0;
+     bottom: 10px;
+ }
+ 
+ #rules-box-winner-page{
+     background-color: #004429;
+     border: 7px solid white;
+     width: 278px;
+     height: 335px;
+     border-radius: 13px;
+     position: absolute;
+     bottom: 60px;
+     right: 38px;
+     margin-top: -390px;
+     display: none;
+     z-index: 101;
+ }
+ 
+ #cancel-btn-two{
+     position: absolute;
+     right: -30px;
+     top: -40px;
+ }
