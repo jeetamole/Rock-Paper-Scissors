@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="preload">
 
     <div class="container">
         <header class="header">
@@ -41,33 +41,36 @@
     <section class="game">
         <button class="choice-btn" data-choice="paper">
             <div class="choice paper">
-                <img src="img/icon-paper.png" alt="paper">
+                <img src="img/icon-paper.png">
             </div>
         </button>
         <button class="choice-btn" data-choice="scissors">
-            <div class="choice scissors">
-                <img src="img/icon-scissors.png" alt="scissors">
+            <div class="choice scissors" >
+                <img src="img/icon-scissors.png">
             </div>
         </button>
         <button class="choice-btn" data-choice="rock">
-            <div class="choice rock">
-                <img src="img/icon-rock.png" alt="rock">
+            <div class="choice rock" >
+                <img src="img/icon-rock.png">
             </div>
         </button>
     </section>
 
-    <!-- <section class="results">
+    <section class="results hidden">
         <h2 class="results-heading">you picked</h2>
         <h2 class="results-heading">pc picked</h2>
         <div class="results-result"></div>
-        <div class="results-result"></div> -->
+        <div class="results-winner hidden">
+            <h2 class="results-text"></h2>
+            <button class="play-again">Play again</button>
+        </div>
+        <div class="results-result"></div>
 
     </section>
     <!-- Rules Button  -->
     <button class="rules-btn">rules</button>
 
     <div class="rules-container">
-
         <h1>Game Rules</h1>
         <ul>
             <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
@@ -78,65 +81,6 @@
         </ul>
         <button class="close-btn">X</button>
     </div>
-
-    <div id="match-title">
-        <h5>YOU PICKED</h5>
-        <h5>PC PICKED</h5>
-
-    </div>
-
-    <!--------------------------------------------Winner's highlight-------------------------------------------->
-    <div id="win-box">
-        <div id="winner-background">
-            <div>
-                <img id="user-Winner-Background" src="img/Winnerhighlight.png" alt="" srcset="">
-            </div>
-            <div>
-                <img id="comp-Winner-Background" src="img/Winnerhighlight.png" alt="" srcset="">
-            </div>
-        </div>
-    </div>
-
-    <!--------------------------------------------Match Area------------------------------------------------>
-    <div id="match-area">
-        <div id="you-picked"></div>
-        <div id="result"></div>
-        <div>
-            <button id="play-again">PLAY AGAIN</button>
-        </div>
-        <div id="Pc-picked"></div>
-
-         <!--------------------------------------------WINNERS PAGE------------------------------------------------>
-    <div class="container-two">
-        <div id="Winner-page">
-            <img id="trophy-img" src="Images/trophy.png" alt="">
-            <h1 id="txt1">HURRAY!!</h1>
-            <span id="txt2">YOU WON THE GAME</span>
-            <button id="play-again-btn-win-page">PLAY AGAIN</button>
-            <button id="Rules-btn-win-page">RULES</button>  
-        </div>
-
-         <!--------------------------------------------Rules for winner page-------------------------------------->
-        <div id="rules-box-winner-page">
-            <a href="#" id="cancel-btn-two"><img src="Images/Cancel.png" alt="" srcset=""></a>
-            <h4>Game Rules</h4>
-            <ul style="list-style-type:square">
-                <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
-                <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
-                <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
-                <li>If both players lay down the same hand, each player lays down another hand</li>
-            </ul>
-        </div>
-        
-    </div>
-    </div>
-
-    </div>
-
-
-
-
-
 
 
     <script src="script.js"></script>
